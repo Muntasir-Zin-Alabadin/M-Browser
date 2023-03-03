@@ -327,7 +327,7 @@ class FTPWindow(QListWidget):
         self.setWindowTitle('FTP')
         self.move(0,0)
         allFiles = []
-        session = FTP('ftp.byethost12.com', timeout=9999)
+        session = FTP('', timeout=9999)
         session.cwd('MBrowser')
         allFiles = session.nlst()
         layout = QGridLayout()
@@ -359,7 +359,7 @@ class FTPWindow(QListWidget):
         fileName = QFileDialog.getOpenFileName()
         
     def upload(self):    
-        session = FTP('ftp.byethost12.com', timeout=9999)
+        session = FTP('', timeout=9999)
         session.cwd('MBrowser')
         fileName = QFileDialog.getOpenFileName(parent=self, caption='Select the file you want to upload', directory=os.getcwd())
         fileName = str(fileName)
@@ -386,7 +386,7 @@ class FTPWindow(QListWidget):
         
         
     def download(self):
-        session = FTP('ftp.byethost12.com', timeout=9999)
+        session = FTP('', timeout=9999)
         session.cwd('MBrowser')
         filename = "pic.png"
         filename = self.item
@@ -395,7 +395,7 @@ class FTPWindow(QListWidget):
         session.quit()
         
     def delete(self):
-        session = FTP('ftp.byethost12.com', timeout=9999)
+        session = FTP('', timeout=9999)
         session.cwd('MBrowser')
         filename = self.item
         session.delete(filename)
